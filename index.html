@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steen, papier, schaar</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+    }
+    h1 {
+        color: #333;
+    }
+    .container {
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+    }
+    button {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        color: white;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<h1>Steen, papier, schaar</h1>
+<div id="result"></div>
+<button onclick="play('steen')">Steen</button>
+<button onclick="play('papier')">Papier</button>
+<button onclick="play('schaar')">Schaar</button>
+
+<script>
+function play(playerChoice) {
+    const choices = ['steen', 'papier', 'schaar'];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    const result = getResult(playerChoice, computerChoice);
+    document.getElementById('result').innerHTML = `Jij koos ${playerChoice}, de computer koos ${computerChoice}. ${result}`;
+}
+
+function getResult(player, computer) {
+    if (player === computer) return "Gelijkspel!";
+    if ((player === 'steen' && computer === 'schaar') ||
+        (player === 'papier' && computer === 'steen') ||
+        (player === 'schaar' && computer === 'papier')) {
+        return "Je wint!";
+    } else {
+        return "Je verliest!";
+    }
+}
+</script>
+</body>
+</html>
