@@ -5,13 +5,82 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
 }
-button {
+
+h1 {
+    margin-top: 20px;
+}
+
+#players {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+#players h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#game {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.choice {
     margin: 5px;
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
+
+.choice:hover {
+    background-color: #45a049;
+}
+
 #result {
     margin-top: 20px;
     font-size: 18px;
+}
+
+#scoreboard {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+#resetGame {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resetGame:hover {
+    background-color: #da190b;
+}
+
+/* Nieuwe CSS-regels toegevoegd */
+
+#closeButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #f44336;
 }
