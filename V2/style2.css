@@ -60,36 +60,20 @@ button {
     justify-content: center;
 }
 
+/* Rock button */
 button[data-choice="Rock"] {
-    background-color: #ff6666;
+    background-color: #ff6666; /* Rood */
     color: #ffffff;
 }
 
+/* Paper button */
 button[data-choice="Paper"] {
-    background-color: #66b3ff;
+    background-color: #66b3ff; /* Blauw */
     color: #ffffff;
 }
 
+/* Scissors button */
 button[data-choice="Scissors"] {
-    background-color: #66ff66;
+    background-color: #66ff66; /* Groen */
     color: #ffffff;
-}
-
-/* Button hover effects */
-button:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
-}
-
-/* Responsive design */
-@media (max-width: 600px) {
-    div {
-        width: 90%;
-        padding: 10px;
-    }
-
-    button {
-        width: 100%;
-        margin: 5px 0;
-    }
 }
