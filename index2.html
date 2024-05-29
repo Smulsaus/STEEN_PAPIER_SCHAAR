@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style2.css">
-    <title>Steen, Papier, Schaar</title>
 </head>
 <body>
-    <h1>Steen, Papier, Schaar</h1>
-    <div id="setup">
-        <input type="text" id="player1Name" placeholder="Naam speler 1">
-        <input type="text" id="player2Name" placeholder="Naam speler 2 (leeg laten voor computer)">
-        <button id="startGame">Start spel</button>
+    <div>
+        <h1>Rock, Paper, Scissors</h1>
+        <div class="scoreboard">
+            <p>Player Score: <span id="playerScore">0</span></p>
+            <p>Computer Score: <span id="computerScore">0</span></p>
+        </div>
+        <p>Computer: <span id="computer"></span></p>
+        <p>Your choice: <span id="human"></span></p>
+        <p>Result: <span id="result"></span></p>
+        <p>Highscore: <span id="highscore">0</span></p>
+        <p>Streak: <span id="streak">0</span></p>
+        <p>Round: <span id="round">1</span></p>
+        <button data-choice="Rock">✊ Rock</button>
+        <button data-choice="Paper">✋ Paper</button>
+        <button data-choice="Scissors">✌️ Scissors</button>
     </div>
-
-    <script>
-        document.getElementById('startGame').addEventListener('click', () => {
-            const player1Name = document.getElementById('player1Name').value || 'Speler 1';
-            const player2Name = document.getElementById('player2Name').value || 'Computer';
-            localStorage.setItem('player1Name', player1Name);
-            localStorage.setItem('player2Name', player2Name);
-            window.location.href = 'sps.html';
-        });
-    </script>
+    <audio id="winSound" src="win.mp3" preload="auto"></audio>
+    <audio id="loseSound" src="lose.mp3" preload="auto"></audio>
+    <script src="script2.js"></script>
 </body>
 </html>

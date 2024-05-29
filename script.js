@@ -1,87 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const options = ['steen', 'papier', 'schaar'];
-    const resultDiv = document.getElementById('result');
-    const player1Name = localStorage.getItem('player1Name') || 'Speler 1';
-    const player2Name = localStorage.getItem('player2Name') || 'Computer';
-    const player1ScoreDiv = document.getElementById('player1Score');
-    const player2ScoreDiv = document.getElementById('player2Score');
-    let player1Score = 0;
-    let player2Score = 0;
-    let player2IsComputer = player2Name === 'Computer';
+// Selecting elements
+const computerOutput = document.querySelector("#computer");
+const humanOutput = document.querySelector("#human");
+const resultOutput = document.querySelector("#result");
 
-    document.querySelectorAll('.choice').forEach(button => {
-        button.addEventListener('click', handleButtonClick);
-    });
+const choices = ["Rock", "Paper", "Scissors"];
 
-    document.getElementById('resetGame').addEventListener('click', resetGame);
+// Function to get computer choice
+function getComputerChoice() {
+    const randomNumber = Math.floor(Math.random() * 3);
+    return choices[randomNumber];
+}
 
-    function handleButtonClick(event) {
-        const player1Choice = event.target.getAttribute('data-choice');
-        let player2Choice;
-
-        if (player2IsComputer) {
-            player2Choice = getComputerChoice();
-        } else {
-            // Simuleer keuze voor speler 2 (in een echte game, hier kan een interface komen)
-            player2Choice = getPlayer2Choice();
-        }
-
-        playGame(player1Choice, player2Choice);
+// Function to determine winner
+function determineWinner(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return "It's a draw!";
     }
-
-    function playGame(player1Choice, player2Choice) {
-        const result = determineWinner(player1Choice, player2Choice);
-        displayResult(player1Choice, player2Choice, result);
-        updateScore(result);
+    if ((humanChoice === "Rock" && computerChoice === "Scissors") ||
+        (humanChoice === "Scissors" && computerChoice === "Paper") ||
+        (humanChoice === "Paper" && computerChoice === "Rock")) {
+        return "You win!";
+    } else {
+        return "You lose!";
     }
+}
 
-    function getComputerChoice() {
-        return options[Math.floor(Math.random() * options.length)];
-    }
-
-    function getPlayer2Choice() {
-        // Simuleer een keuze voor speler 2 (in een echte game, hier kan een interface komen)
-        return options[Math.floor(Math.random() * options.length)];
-    }
-
-    function determineWinner(player1, player2) {
-        if (player1 === player2) {
-            return "Het is gelijkspel!";
-        }
-        switch (player1) {
-            case 'steen':
-                return (player2 === 'schaar') ? `${player1Name} wint!` : `${player2Name} wint!`;
-            case 'papier':
-                return (player2 === 'steen') ? `${player1Name} wint!` : `${player2Name} wint!`;
-            case 'schaar':
-                return (player2 === 'papier') ? `${player1Name} wint!` : `${player2Name} wint!`;
-            default:
-                return "Ongeldige keuze!";
-        }
-    }
-
-    function displayResult(player1Choice, player2Choice, result) {
-        resultDiv.textContent = `${player1Name} koos: ${player1Choice}, ${player2Name} koos: ${player2Choice}. ${result}`;
-    }
-
-    function updateScore(result) {
-        if (result.includes(player1Name)) {
-            player1Score++;
-        } else if (result.includes(player2Name)) {
-            player2Score++;
-        }
-        updateScoreboard();
-    }
-
-    function updateScoreboard() {
-        player1ScoreDiv.textContent = `${player1Name}: ${player1Score}`;
-        player2ScoreDiv.textContent = `${player2Name}: ${player2Score}`;
-    }
-
-    function resetGame() {
-        player1Score = 0;
-        player2Score = 0;
-        updateScoreboard();
-        resultDiv.textContent = '';
-    }
+// Event listeners for buttons
+document.querySelector("#rock").addEventListener("click", function() {
+    playGame("Rock");
 });
+document.querySelector("#paper").addEventListener("click", function() {
+    playGame("Paper");
+});
+document.querySelector("#scissors").addEventListener("click", function() {
+    playGame("Scissors");
+});
+
+// Function to play the game
+function playGame(humanChoice) {
+    const computerChoice = getComputerChoice();
+    computerOutput.innerHTML = computerChoice;
+    humanOutput.innerHTML = humanChoice;
+    resultOutput.innerHTML = determineWinner(humanChoice, computerChoice);
+}

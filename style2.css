@@ -1,86 +1,95 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color: #f3f3f3;
+    background-color: #f0f0f0;
     margin: 0;
-    padding: 0;
 }
 
+div {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
 h1 {
-    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333333;
 }
 
-#players {
-    display: flex;
-    justify-content: space-around;
+/* Scoreboard */
+.scoreboard {
     margin-bottom: 20px;
 }
 
-#players h2 {
+.scoreboard p {
     font-size: 18px;
+    margin: 5px 0;
+}
+
+/* Paragraphs */
+p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Result span */
+span#result {
     font-weight: bold;
+    color: #ff0000;
 }
 
-#game {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.choice {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.choice:hover {
-    background-color: #45a049;
-}
-
-#result {
-    margin-top: 20px;
+/* Buttons */
+button {
     font-size: 18px;
-}
-
-#scoreboard {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-}
-
-#resetGame {
-    margin-top: 20px;
     padding: 10px 20px;
-    font-size: 16px;
-    background-color: #f44336;
-    color: white;
+    margin: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#resetGame:hover {
-    background-color: #da190b;
+button[data-choice="Rock"] {
+    background-color: #ff6666;
+    color: #ffffff;
 }
 
-/* Nieuwe CSS-regels toegevoegd */
+button[data-choice="Paper"] {
+    background-color: #66b3ff;
+    color: #ffffff;
+}
 
-#closeButton {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    color: #f44336;
+button[data-choice="Scissors"] {
+    background-color: #66ff66;
+    color: #ffffff;
+}
+
+/* Button hover effects */
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    div {
+        width: 90%;
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
 }

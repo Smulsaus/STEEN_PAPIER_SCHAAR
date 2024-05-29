@@ -1,36 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
-<title>Steen, papier, schaar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Steen, papier, schaar</h1>
-<div id="result"></div>
-<button onclick="play('steen')">Steen</button>
-<button onclick="play('papier')">Papier</button>
-<button onclick="play('schaar')">Schaar</button>
-
-<script>
-function play(playerChoice) {
-    const choices = ['steen', 'papier', 'schaar'];
-    const computerChoice = choices[Math.floor(Math.random() * 3)];
-    const result = getResult(playerChoice, computerChoice);
-    document.getElementById('result').innerHTML = `Jij koos ${playerChoice}, de computer koos ${computerChoice}. ${result}`;
-}
-
-function getResult(player, computer) {
-    if (player === computer) return "Gelijkspel!";
-    if ((player === 'steen' && computer === 'schaar') ||
-        (player === 'papier' && computer === 'steen') ||
-        (player === 'schaar' && computer === 'papier')) {
-        return "Je wint!";
-    } else {
-        return "Je verliest!";
-    }
-}
-</script>
+    <div>
+        <h1>Rock, Paper, Scissors</h1>
+        <p>Computer: <span id="computer"></span></p>
+        <p>Your choice: <span id="human"></span></p>
+        <p>Result: <span id="result"></span></p>
+        <button id="rock">✊ Rock</button>
+        <button id="paper">✋ Paper</button>
+        <button id="scissors">✌️ Scissors</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
