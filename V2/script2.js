@@ -58,7 +58,7 @@ function playGame(humanChoice) {
         streakOutput.innerHTML = streak;
         winSound.play();
 
-        // Check if player wins 3 times in best of 3 mode
+        // Check if player wins 3 times 
         if (gameMode === "bestOf3" && playerScore === 3) {
             //show win or lose
             alert("Congratulations! You won the best of 3 round!");
@@ -71,7 +71,7 @@ function playGame(humanChoice) {
         streakOutput.innerHTML = streak;
         loseSound.play();
 
-        // Check if computer wins 3 times in best of 3 mode
+        // Check if computer wins 3 times 
         if (gameMode === "bestOf3" && computerScore === 3) {
             alert("You lost the best of 3 round!");
             resetGame();
@@ -96,7 +96,7 @@ function resetGame() {
 // Add event listener to game mode select
 gameModeSelect.addEventListener("change", function () {
     gameMode = gameModeSelect.value;
-    // Reset game variables if needed based on game mode
+    // Reset game variables 
     if (gameMode === "bestOf3") {
         resetGame();
     }

@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('feestdag').innerHTML = "<h2>Er zijn geen aankomende feestdagen</h2>";
     }
 
-    // Toon alle feestdagen wanneer de gebruiker op de knop klikt
+    // Toon alle feestdagen
     document.getElementById('toggle').addEventListener('click', function () {
         var alleFeestdagen = feestdagen.map(function (feestdag) {
             return "<p>" + feestdag.naam + " op " + feestdag.datum + "</p>";

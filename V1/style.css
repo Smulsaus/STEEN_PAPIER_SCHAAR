@@ -65,12 +65,12 @@ button#scissors {
     color: #ffffff;
 }
 
-/* Button hover effects */
+/* Button hover*/
 button:hover {
     opacity: 0.9;
 }
 
-/* Responsive design */
+/* design */
 @media (max-width: 600px) {
     div {
         width: 90%;
