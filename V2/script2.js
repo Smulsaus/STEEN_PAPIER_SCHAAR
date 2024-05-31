@@ -60,8 +60,7 @@ function playGame(humanChoice) {
 
         // Check if player wins 3 times in best of 3 mode
         if (gameMode === "bestOf3" && playerScore === 3) {
-            // Show confetti
-            // You can add confetti animation here or trigger it from a library
+            //show win or lose
             alert("Congratulations! You won the best of 3 round!");
             resetGame();
         }
